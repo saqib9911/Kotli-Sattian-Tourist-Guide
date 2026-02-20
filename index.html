@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotli Sattian & Parinyaan | Professional Guide</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+
+    <style>
+        :root { --primary: #1b4332; --accent: #d97706; --glass: rgba(255, 255, 255, 0.2); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: #f0fdf4; color: #1b4332; scroll-behavior: smooth; transition: 0.5s; }
+        .urdu-font { font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; line-height: 2.2; }
+
+        /* Navbar */
+        .navbar {
+            padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px);
+            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .weather-pill { background: #e8f5e9; padding: 8px 15px; border-radius: 50px; font-weight: bold; font-size: 14px; border: 1px solid #c8e6c9; }
+        .lang-btn { background: var(--accent); color: white; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+
+        /* Hero */
+        .hero {
+            height: 85vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com');
+            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 60px;
+        }
+        .glass-hero { background: var(--glass); backdrop-filter: blur(15px); padding: 50px; border-radius: 40px; text-align: center; color: white; border: 1px solid rgba(255,255,255,0.3); width: 90%; max-width: 800px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 15px; }
+
+        /* Destinations */
+        .container { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.5s; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        .card-img { height: 250px; background-size: cover; background-position: center; }
+        .card-content { padding: 30px; }
+
+        /* Map Section */
+        .map-section { padding: 60px 20px; background: white; text-align: center; }
+        .map-box { border-radius: 40px; overflow: hidden; border: 10px solid #f0fdf4; box-shadow: 0 30px 60px rgba(0,0,0,0.1); max-width: 1100px; margin: auto; }
+
+        footer { padding: 40px; text-align: center; background: #081c15; color: #8ecae6; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" style="font-weight:900; font-size:24px;">KOTLI<span style="color:#d97706;">SATTIAN</span></div>
+        <div class="nav-right">
+            <div class="weather-pill" id="weather">🌡️ Loading...</div>
+            <button id="lang-btn" class="lang-btn" onclick="toggleLanguage()">اردو میں دیکھیں</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="glass-hero">
+            <h1 id="h-title">Explore Parinyaan</h1>
+            <p id="h-desc">Visit the crystal water springs of Parinyaan and the lush heights of Thoon and Kamra.</p>
+        </div>
+    </header>
+
+    <section class="container" id="explore">
+        <h2 id="s-title" class="section-title">Hidden Gems of 2026</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com');"></div>
+                <div class="card-content">
+                    <h3 id="p1-t">Parinyaan (پریئں)</h3>
+                    <p id="p1-d">Famous for its natural cold springs and peaceful hiking tracks through the pine forest.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com');"></div>
+                <div class="card-content">
+                    <h3 id="p2-t">Thoon & Kamra Heights</h3>
+                    <p id="p2-d">Experience the highest ridges providing a 360-degree view of the Himalayan foothills.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com');"></div>
+                <div class="card-content">
+                    <h3 id="p3-t">Kotli Sattian Bazar</h3>
+                    <p id="p3-d">Enjoy local Pahari food and the famous hospitality of the Sattian people.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2 id="m-title" style="margin-bottom:30px;">Live Navigation Guide</h2>
+        <div class="map-box">
+            <iframe src="https://www.google.com" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p id="footer-txt">© 2026 Kotli Sattian Digital | Feb 20, 2026 Updated</p>
+    </footer>
+
+    <script>
+        // Language Toggle Logic
+        let lang = 'en';
+        const data = {
+            en: {
+                btn: "اردو میں دیکھیں", hT: "Explore Parinyaan", hD: "Visit the crystal water springs of Parinyaan and the lush heights of Thoon and Kamra.",
+                sT: "Hidden Gems of 2026", p1T: "Parinyaan (پریئں)", p1D: "Famous for its natural cold springs and peaceful hiking tracks through the pine forest.",
+                p2T: "Thoon & Kamra Heights", p2D: "Experience the highest ridges providing a 360-degree view of the Himalayan foothills.",
+                p3T: "Kotli Sattian Bazar", p3D: "Enjoy local Pahari food and the famous hospitality of the Sattian people.",
+                mT: "Live Navigation Guide", fT: "© 2026 Kotli Sattian Digital | Feb 20, 2026 Updated"
+            },
+            ur: {
+                btn: "English", hT: "پریئں کی سیر کریں", hD: "پریئں کے ٹھنڈے چشموں اور تھون اور کامرہ کی حسین چوٹیوں کا نظارہ کریں۔",
+                sT: "2026 کے مشہور مقامات", p1T: "پریئں (Parinyaan)", p1D: "اپنے قدرتی چشموں اور چیڑ کے جنگلات میں پرسکون ہائیکنگ ٹریکس کے لیے مشہور۔",
+                p2T: "تھون اور کامرہ کی چوٹیاں", p2D: "پہاڑ کی وہ بلند چوٹیاں جہاں سے آپ کو ہمالیہ کے دامن کا 360 ڈگری نظارہ ملتا ہے۔",
+                p3T: "کوٹلی ستیاں بازار", p3D: "مقامی پہاڑی کھانوں اور ستیاں کے لوگوں کی مشہور مہمان نوازی سے لطف اندوز ہوں۔",
+                mT: "لائیو نقشہ جات", fT: "© 2026 کوٹلی ستیاں ڈیجیٹل | 20 فروری 2026 اپڈیٹ"
+            }
+        };
+
+        function toggleLanguage() {
+            lang = (lang === 'en') ? 'ur' : 'en';
+            const l = data[lang];
+            document.getElementById('lang-btn').innerText = l.btn;
+            document.getElementById('h-title').innerText = l.hT;
+            document.getElementById('h-desc').innerText = l.hD;
+            document.getElementById('s-title').innerText = l.sT;
+            document.getElementById('p1-t').innerText = l.p1T;
+            document.getElementById('p1-d').innerText = l.p1D;
+            document.getElementById('p2-t').innerText = l.p2T;
+            document.getElementById('p2-d').innerText = l.p2D;
+            document.getElementById('p3-t').innerText = l.p3T;
+            document.getElementById('p3-d').innerText = l.p3D;
+            document.getElementById('m-title').innerText = l.mT;
+            document.getElementById('footer-txt').innerText = l.fT;
+            document.body.classList.toggle('urdu-font');
+        }
+
+        // Live Weather API (Kotli Sattian Coordinates)
+        async function fetchWeather() {
+            try {
+                const res = await fetch('https://api.open-meteo.com');
+                const weatherData = await res.json();
+                document.getElementById('weather').innerText = `🌡️ ${weatherData.current_weather.temperature}°C | Kotli Sattian`;
+            } catch (error) {
+                document.getElementById('weather').innerText = "🌡️ 18°C | Kotli Sattian";
+            }
+        }
+        fetchWeather();
+    </script>
+</body>
+</html>
